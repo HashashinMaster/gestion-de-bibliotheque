@@ -17,7 +17,7 @@ Le projet suit l'architecture MVC (Modèle-Vue-Contrôleur) et le pattern DAO (D
 - **Modèles**: Classes représentant les entités (Livre, Membre, Emprunt)
 - **DAO**: Interfaces et implémentations pour l'accès aux données
 - **Contrôleurs**: Gestion de la logique métier et des interactions utilisateur
-- **Vues**: Interfaces utilisateur intégrées dans les contrôleurs
+- **Vues**: Interfaces utilisateur (FXML) intégrées dans les contrôleurs
 
 ## Technologies Utilisées
 
@@ -32,18 +32,18 @@ Le projet suit l'architecture MVC (Modèle-Vue-Contrôleur) et le pattern DAO (D
 
 - Java JDK 11 ou supérieur
 - Maven
-- Serveur MySQL (port 3307, utilisateur root sans mot de passe)
+- Serveur MySQL
 
 ### Étapes d'installation
 
 1. Cloner le dépôt:
    ```
-   git clone [URL_DU_REPO]
+   git clone https://github.com/HashashinMaster/gestion-de-bibliotheque.git
    ```
 
 2. Naviguer vers le répertoire du projet:
    ```
-   cd javafx_tp
+   cd gestion-de-bibliotheque
    ```
 
 3. Configurer les variables d'environnement:
