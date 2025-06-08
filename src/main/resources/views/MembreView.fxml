@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.MembreController"
+      spacing="10" styleClass="panel"
+      stylesheets="@../styles.css">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    
+    <Label text="Gestion des Membres" styleClass="subtitle"/>
+    
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Rechercher par nom" prefWidth="300"/>
+        <Button text="Rechercher" onAction="#handleSearch"/>
+        <Button text="Réinitialiser" onAction="#handleReset"/>
+    </HBox>
+    
+    <TableView fx:id="membresTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID"/>
+            <TableColumn fx:id="nomColumn" text="Nom"/>
+            <TableColumn fx:id="prenomColumn" text="Prénom"/>
+            <TableColumn fx:id="emailColumn" text="Email"/>
+            <TableColumn fx:id="telephoneColumn" text="Téléphone"/>
+            <TableColumn fx:id="adresseColumn" text="Adresse"/>
+            <TableColumn fx:id="dateInscriptionColumn" text="Date d'inscription"/>
+        </columns>
+        <placeholder>
+            <Label text="Aucun membre disponible"/>
+        </placeholder>
+    </TableView>
+    
+    <GridPane hgap="10" vgap="10">
+        <padding>
+            <Insets top="10" right="0" bottom="10" left="0"/>
+        </padding>
+        
+        <Label text="Nom:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="nomField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        
+        <Label text="Prénom:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="prenomField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        
+        <Label text="Email:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <TextField fx:id="emailField" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+        
+        <Label text="Téléphone:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <TextField fx:id="telephoneField" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+        
+        <Label text="Adresse:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="adresseField" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+        
+        <Label text="Date d'inscription:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="dateInscriptionPicker" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="100"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+            <ColumnConstraints hgrow="NEVER" minWidth="100"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+        </columnConstraints>
+    </GridPane>
+    
+    <HBox spacing="10">
+        <Button text="Ajouter" styleClass="button-success" onAction="#addMembre"/>
+        <Button text="Modifier" onAction="#updateMembre"/>
+        <Button text="Supprimer" styleClass="button-danger" onAction="#deleteMembre"/>
+        <Button text="Effacer" onAction="#clearForm"/>
+    </HBox>
+</VBox>

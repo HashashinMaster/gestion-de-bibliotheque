@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.MainController"
+            prefHeight="700.0" prefWidth="1000.0"
+            stylesheets="@../styles.css">
+    <top>
+        <VBox styleClass="nav-bar">
+            <Label text="Système de Gestion de Bibliothèque" styleClass="title" style="-fx-text-fill: white; -fx-padding: 10;"/>
+        </VBox>
+    </top>
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Livres">
+                <fx:include source="LivreView.fxml"/>
+            </Tab>
+            <Tab text="Membres">
+                <fx:include source="MembreView.fxml"/>
+            </Tab>
+            <Tab text="Emprunts">
+                <fx:include source="EmpruntView.fxml"/>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

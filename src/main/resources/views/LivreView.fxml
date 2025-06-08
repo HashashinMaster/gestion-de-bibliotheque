@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.LivreController"
+      spacing="10" styleClass="panel"
+      stylesheets="@../styles.css">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    
+    <Label text="Gestion des Livres" styleClass="subtitle"/>
+    
+    <HBox spacing="10">
+        <TextField fx:id="searchField" promptText="Rechercher par titre ou auteur" prefWidth="300"/>
+        <Button text="Rechercher" onAction="#handleSearch"/>
+        <Button text="Réinitialiser" onAction="#handleReset"/>
+    </HBox>
+    
+    <TableView fx:id="livresTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID"/>
+            <TableColumn fx:id="titreColumn" text="Titre"/>
+            <TableColumn fx:id="auteurColumn" text="Auteur"/>
+            <TableColumn fx:id="isbnColumn" text="ISBN"/>
+            <TableColumn fx:id="anneePublicationColumn" text="Année"/>
+            <TableColumn fx:id="editeurColumn" text="Éditeur"/>
+            <TableColumn fx:id="disponibleColumn" text="Disponible"/>
+        </columns>
+        <placeholder>
+            <Label text="Aucun livre disponible"/>
+        </placeholder>
+    </TableView>
+    
+    <GridPane hgap="10" vgap="10">
+        <padding>
+            <Insets top="10" right="0" bottom="10" left="0"/>
+        </padding>
+        
+        <Label text="Titre:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="titreField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        
+        <Label text="Auteur:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="auteurField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        
+        <Label text="ISBN:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <TextField fx:id="isbnField" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+        
+        <Label text="Année:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <TextField fx:id="anneePublicationField" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+        
+        <Label text="Éditeur:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="editeurField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        
+        <Label text="Disponible:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+        <CheckBox fx:id="disponibleCheck" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+        
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="80"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+            <ColumnConstraints hgrow="NEVER" minWidth="80"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+        </columnConstraints>
+    </GridPane>
+    
+    <HBox spacing="10">
+        <Button text="Ajouter" styleClass="button-success" onAction="#addLivre"/>
+        <Button text="Modifier" onAction="#updateLivre"/>
+        <Button text="Supprimer" styleClass="button-danger" onAction="#deleteLivre"/>
+        <Button text="Effacer" onAction="#clearForm"/>
+    </HBox>
+</VBox>

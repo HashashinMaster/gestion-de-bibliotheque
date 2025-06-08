@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.EmpruntController"
+      spacing="10" styleClass="panel"
+      stylesheets="@../styles.css">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    
+    <Label text="Gestion des Emprunts" styleClass="subtitle"/>
+    
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Rechercher un emprunt..." HBox.hgrow="ALWAYS"/>
+        <Button text="Rechercher" onAction="#handleSearch"/>
+        <Button text="Réinitialiser" onAction="#handleReset"/>
+    </HBox>
+    
+    <TableView fx:id="empruntsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID"/>
+            <TableColumn fx:id="livreColumn" text="Livre"/>
+            <TableColumn fx:id="membreColumn" text="Membre"/>
+            <TableColumn fx:id="dateEmpruntColumn" text="Date d'emprunt"/>
+            <TableColumn fx:id="dateRetourPrevueColumn" text="Date de retour prévue"/>
+            <TableColumn fx:id="dateRetourReelleColumn" text="Date de retour réelle"/>
+        </columns>
+        <placeholder>
+            <Label text="Aucun emprunt disponible"/>
+        </placeholder>
+    </TableView>
+    
+    <GridPane hgap="10" vgap="10">
+        <padding>
+            <Insets top="10" right="0" bottom="10" left="0"/>
+        </padding>
+        
+        <Label text="Livre:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="livreComboBox" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="300"/>
+        
+        <Label text="Membre:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="membreComboBox" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="300"/>
+        
+        <Label text="Date d'emprunt:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <DatePicker fx:id="dateEmpruntPicker" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+        
+        <Label text="Date de retour prévue:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <DatePicker fx:id="dateRetourPrevuePicker" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+        
+        <Label text="Date de retour réelle:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+        <DatePicker fx:id="dateRetourReellePicker" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+        
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="120"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+            <ColumnConstraints hgrow="NEVER" minWidth="150"/>
+            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+        </columnConstraints>
+    </GridPane>
+    
+    <HBox spacing="10">
+        <Button text="Enregistrer Emprunt" styleClass="button-success" onAction="#addEmprunt"/>
+        <Button text="Modifier Emprunt" styleClass="button-primary" onAction="#updateEmprunt"/>
+        <Button text="Supprimer Emprunt" styleClass="button-danger" onAction="#deleteEmprunt"/>
+        <Button text="Enregistrer Retour" onAction="#returnEmprunt"/>
+        <Button text="Effacer" onAction="#clearForm"/>
+    </HBox>
+</VBox>
